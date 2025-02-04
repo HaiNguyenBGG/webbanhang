@@ -1,0 +1,264 @@
+/* 🎨 RESET CƠ BẢN */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 🌎 BODY CHUNG */
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* =================== 🏪 HEADER & NAVBAR =================== */
+.navbar {
+    padding: 12px 20px;
+    background-color: #343a40 !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white !important;
+    transition: 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffc107 !important;
+}
+
+/* 🔹 Giỏ hàng nổi bật */
+.navbar-nav .nav-link.cart {
+    font-weight: bold;
+    background: #ffc107;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: #333 !important;
+}
+
+.navbar-nav .nav-link.cart:hover {
+    background: #ff9800;
+}
+
+/* 🔹 Menu ngang trên desktop */
+@media (min-width: 992px) {
+    .navbar-nav {
+        flex-direction: row;
+    }
+}
+
+/* 🔹 Menu dọc trên mobile */
+@media (max-width: 991px) {
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar-nav .nav-item {
+        margin: 5px 0;
+    }
+}
+
+/* =================== 🎁 DANH SÁCH SẢN PHẨM =================== */
+.card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 🖼 Ảnh sản phẩm */
+.card img {
+    max-height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* 💰 Giá tiền */
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* 🔘 Nút */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn {
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    flex: 1;
+    margin-right: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border: none;
+    flex: 1;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}
+
+/* =================== 🛒 GIỎ HÀNG =================== */
+.cart-container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 🛍️ Tổng tiền */
+.total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* 🔘 Nút tăng/giảm số lượng */
+.quantity-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-buttons button {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+}
+
+/* =================== 💰 FORM THANH TOÁN =================== */
+.payment-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.payment-form.active {
+    display: block;
+    opacity: 1;
+}
+
+/* 🔲 Overlay nền mờ khi mở form */
+.payment-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.payment-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ❌ Nút đóng form */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    color: #dc3545;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #a71d2a;
+}
+
+/* 🏦 THÔNG TIN NGÂN HÀNG */
+.bank-details {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.qr-code {
+    width: 120px;
+    height: 120px;
+    margin-top: 10px;
+}
+
+/* =================== 📱 RESPONSIVE =================== */
+@media (max-width: 768px) {
+    .cart-container {
+        width: 95%;
+    }
+    .payment-form {
+        width: 90%;
+    }
+}
+/* 🔍 Tìm kiếm sản phẩm */
+.search-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-input:focus {
+    border-color: #0056b3;
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+}
+
